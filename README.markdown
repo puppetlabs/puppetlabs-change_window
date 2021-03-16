@@ -1,9 +1,22 @@
 #### Table of Contents
 
-1. [Overview](#overview)
-2. [Module Description](#module-description)
+1. [Background](#background)
+2. [Overview](#overview)
+3. [Module Description](#module-description)
 4. [Usage](#usage)
-6. [Development - Guide for contributing to the module](#development)
+5. [Development - Guide for contributing to the module](#development)
+
+## Background
+
+This module is a fork of [ipcrm-change_window](https://forge.puppet.com/modules/ipcrm/change_window) which is no longer actively maintained. It has been moved under the puppetlabs namespace to allow for community contributions.
+
+It is **not** supported or maintained by puppet.
+
+Original Author:
+- Matt Cadorette
+
+Week in Month feature:
+- Steve Jefferies (WTW)
 
 ## Overview
 
