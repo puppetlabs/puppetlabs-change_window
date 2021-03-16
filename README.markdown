@@ -12,10 +12,10 @@ This module is a fork of [ipcrm-change_window](https://forge.puppet.com/modules/
 
 It is **not** supported or maintained by puppet.
 
-Original Author:
+**Original Author:**
 - Matt Cadorette
 
-Week in Month feature:
+**Week in Month feature:**
 - Steve Jefferies (WTW)
 
 ## Overview
