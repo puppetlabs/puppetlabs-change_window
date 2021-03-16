@@ -8,7 +8,7 @@
 
 ## Background
 
-This module is a fork of [ipcrm-change_window](https://forge.puppet.com/modules/ipcrm/change_window) which is no longer actively maintained. It has been moved under the puppetlabs namespace to allow for community contributions.
+This module is a fork of [ipcrm-change_window](https://forge.puppet.com/modules/ipcrm/change_window) which is no longer actively maintained. **ipcrm-change_window** has been moved under the puppetlabs namespace to allow for community contributions.
 
 It is **not** supported or maintained by puppet.
 
