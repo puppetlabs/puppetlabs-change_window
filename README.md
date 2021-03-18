@@ -6,7 +6,7 @@
 2. [Overview](#overview)
 3. [Module Description](#module-description)
 4. [Usage](#usage)
-5. [Development - Guide for contributing to the module](#development)
+5. [Contributions - Guide for contributing to the module](#contributions)
 
 ## Background
 
@@ -280,6 +280,12 @@ Individual values and ranges must only be between 1 and 12.
 - window_week functionality is provided through an extension which is a modified version of
   [week-of-month](https://github.com/sachin87/week-of-month)
 
-## Development
+# Contributions  
 
-Contributing via the normal means(fork/PR - add your tests!).
+If anyone would like to contribute to the module, PR's are welcome.
+
+If you're experiencing any bugs you can raise an issue below however, given that this is a community module, it will only be resolved if someone submits a PR with a fix. Puppet accepts no responsibility for this module as described in [Background](#background).
+
+Repo:        https://github.com/puppetlabs/ipcrm-change_window
+
+Issues link: https://github.com/puppetlabs/ipcrm-change_window/issues
