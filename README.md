@@ -26,7 +26,6 @@ Allows puppet code to be applied during specified change window(s).
 
 The change_window functionality allows you to check current time against change windows and a defined type that applies noop() to classes when not within the change window.
 
-
 ## Module Description
 
 Why?
@@ -42,12 +41,12 @@ The defined type [change_window::apply](#change_windowapply) will accept an arra
 # Defined types
 ## change_window::apply
 ### Usage
-```puppet
-change_window::apply { 'my_controlled_changes':
-  change_window_set => hiera('weekly_window'),
-  class_list        => [ 'profile::ntp', 'profile::resolver' ],
-}
-```
+  ```puppet
+  change_window::apply { 'my_controlled_changes':
+    change_window_set => hiera('weekly_window'),
+    class_list        => [ 'profile::ntp', 'profile::resolver' ],
+  }
+  ```
 where:
 
 `change_window_set` = An array of arrays defining your change windows to check.  Most easily defined and retrieved via hiera (but does not have to be, see [merge_change_windows](#merge_change_windows) for details)
@@ -57,16 +56,16 @@ where:
 
 The class_list will accept either simple class names to include or a hash describing the class/resource along with its parameters.
 
-example class_list: with simple and parameterized classes
-```
-$class_list = [
-  'profile::parameter_class' => {
-    parm1 => 'value1',
-    parm2 => 'value2',
-  },
-  'profile::simple_class',
-]
-```
+example class_list with simple and parameterized classes:
+  ```
+  $class_list = [
+    'profile::parameter_class' => {
+      parm1 => 'value1',
+      parm2 => 'value2',
+    },
+    'profile::simple_class',
+  ]
+  ```
 
 # Functions
 ## change_window
@@ -88,80 +87,79 @@ Where:
 - `$window_month` **OPTIONAL** array of months within a year to accept as within the change window. Values in the array must be of range 1-12. See [Month in year](#month-in-year-change-windows) for details.
 - `$time` is an optional parameter that lets you specify the time to test as an array.  This array is passed to the Time.new() object to set the time under test.  This array should take the form of [ YYYY, MM, DD, HH, MM] and will apply the timezone specified.
 
+  ```puppet
+  $tz = "-05:00"
+  $window_wday  = { start => 'Friday', end => 'Saturday' }
+  $window_time = { start  => '20:00', end => '23:00' }
+  $window_type = 'window'
+  $val = change_window($tz, $window_type, $window_wday, $window_time)
 
-```puppet
-$tz = "-05:00"
-$window_wday  = { start => 'Friday', end => 'Saturday' }
-$window_time = { start  => '20:00', end => '23:00' }
-$window_type = 'window'
-$val = change_window($tz, $window_type, $window_wday, $window_time)
-
-if $val == 'false' {
-    notify { "Puppet noop enabled in site.pp! Not within change window!": }
-    noop()
-}
-```
+  if $val == 'false' {
+      notify { "Puppet noop enabled in site.pp! Not within change window!": }
+      noop()
+  }
+  ```
 
 Another example shows wrapping the weekend.  You can specify combinations like below (days 5 - 0).  This will result in days 5,6,0 as being valid for the change window.  In this case I'm using per_day so on Friday, Saturday, or Sunday between 8PM and 11PM changes will be allowed.
 
-```puppet
-$tz = "-05:00"
-$window_wday  = { start => 'Friday', end => 'Sunday' }
-$window_time = { start  => '20:00', end => '23:00' }
-$window_type = 'per_day'
-$val = change_window($tz, $window_type, $window_wday, $window_time)
+  ```puppet
+  $tz = "-05:00"
+  $window_wday  = { start => 'Friday', end => 'Sunday' }
+  $window_time = { start  => '20:00', end => '23:00' }
+  $window_type = 'per_day'
+  $val = change_window($tz, $window_type, $window_wday, $window_time)
 
-if $val == 'false' {
-    notify { "Puppet noop enabled in site.pp! Not within change window!": }
-    noop()
-}
-```
+  if $val == 'false' {
+      notify { "Puppet noop enabled in site.pp! Not within change window!": }
+      noop()
+  }
+  ```
 
 Example of using week and month windows, run on first and second week of the month and only between January and March.
 
-```puppet
-$tz = "-05:00"
-$window_wday  = { start => 'Friday', end => 'Saturday' }
-$window_time = { start  => '20:00', end => '23:00' }
-$window_type = 'window'
-$window_week = [1,2]
-$window_month = [1,2,3]
-$val = change_window($tz, $window_type, $window_wday, $window_time, $window_week, $window_month)
+  ```puppet
+  $tz = "-05:00"
+  $window_wday  = { start => 'Friday', end => 'Saturday' }
+  $window_time = { start  => '20:00', end => '23:00' }
+  $window_type = 'window'
+  $window_week = [1,2]
+  $window_month = [1,2,3]
+  $val = change_window($tz, $window_type, $window_wday, $window_time, $window_week, $window_month)
 
-if $val == 'false' {
-    notify { "Puppet noop enabled in site.pp! Not within change window!": }
-    noop()
-}
-```
+  if $val == 'false' {
+      notify { "Puppet noop enabled in site.pp! Not within change window!": }
+      noop()
+  }
+  ```
 
 You can also use hiera to enable more complex windows:
 
 hiera:
-```yaml
-tz_dev: "-05:00"
-window_type_dev: per_day
-window_wday_dev:
-  start: Friday
-  end: Sunday
-window_time_dev:
-  start: "20:00"
-  end: "23:00"
-```
+  ```yaml
+  tz_dev: "-05:00"
+  window_type_dev: per_day
+  window_wday_dev:
+    start: Friday
+    end: Sunday
+  window_time_dev:
+    start: "20:00"
+    end: "23:00"
+  ```
 
 site.pp:
-```puppet
-$e = $::custom_env
-$val = change_window(
-         hiera("tz_${e}"),
-         hiera("window_type_${e}"),
-         hiera("window_wday_${e}"),
-         hiera("window_time_${e}")
-         )
-if $val == 'false' {
-  notify { "Puppet noop enabled in site.pp for env ${e}! Not within change window!": }
-  noop()
-}
-```
+  ```puppet
+  $e = $::custom_env
+  $val = change_window(
+          hiera("tz_${e}"),
+          hiera("window_type_${e}"),
+          hiera("window_wday_${e}"),
+          hiera("window_time_${e}")
+          )
+  if $val == 'false' {
+    notify { "Puppet noop enabled in site.pp for env ${e}! Not within change window!": }
+    noop()
+  }
+  ```
 
 ## merge_change_windows
 ### Usage
@@ -172,60 +170,60 @@ Where:
 $list_of_windows is an Array made up of Arrays containing change_window parameters.
 
 #### Manifest Example
-```puppet
-$tz = "-05:00"
+  ```puppet
+  $tz = "-05:00"
 
-# Friday @ 10 PM until Monday @ 2 AM
-$window1_type = 'window'
-$window1_wday = { start => 'Friday', end => 'Monday' }
-$window1_time = { start => '22:00',  end => '02:00' }
+  # Friday @ 10 PM until Monday @ 2 AM
+  $window1_type = 'window'
+  $window1_wday = { start => 'Friday', end => 'Monday' }
+  $window1_time = { start => '22:00',  end => '02:00' }
 
-# Wednesday @ 10 PM until Thursday @ 2 AM
-$window2_type = 'window'
-$window2_wday = { start => 'Wednesday', end => 'Thursday' }
-$window2_time = { start => '22:00',     end => '02:00' }
+  # Wednesday @ 10 PM until Thursday @ 2 AM
+  $window2_type = 'window'
+  $window2_wday = { start => 'Wednesday', end => 'Thursday' }
+  $window2_time = { start => '22:00',     end => '02:00' }
 
-$change_windows = [
-  [$tz, $window1_type, $window1_wday, $window1_time],
-  [$tz, $window2_type, $window2_wday, $window2_time],
-]
+  $change_windows = [
+    [$tz, $window1_type, $window1_wday, $window1_time],
+    [$tz, $window2_type, $window2_wday, $window2_time],
+  ]
 
-if merge_change_windows($change_windows) == 'false' {
-  notify { "Puppet noop enabled in site.pp! Not within change window!": }
-  noop()
-}
-```
+  if merge_change_windows($change_windows) == 'false' {
+    notify { "Puppet noop enabled in site.pp! Not within change window!": }
+    noop()
+  }
+  ```
 
 #### Hiera Example
 hiera:
-```yaml
-change_window_set::my_change_window:
-  - # Friday @ 10 PM until Monday @ 2 AM
-    - '-05:00'
-    - 'window'
-    - start: 'Friday'
-      end:   'Monday'
-    - start: '22:00'
-      end:   '02:00'
-  - # Wednesday @ 10 PM until Thursday @ 2 AM
-    - '-05:00'
-    - 'window'
-    - start: 'Wednesday'
-      end:   'Thursday'
-    - start: '22:00'
-      end:   '02:00'
-```
+  ```yaml
+  change_window_set::my_change_window:
+    - # Friday @ 10 PM until Monday @ 2 AM
+      - '-05:00'
+      - 'window'
+      - start: 'Friday'
+        end:   'Monday'
+      - start: '22:00'
+        end:   '02:00'
+    - # Wednesday @ 10 PM until Thursday @ 2 AM
+      - '-05:00'
+      - 'window'
+      - start: 'Wednesday'
+        end:   'Thursday'
+      - start: '22:00'
+        end:   '02:00'
+  ```
 
 site.pp:
-```puppet
-$change_window_set = 'my_change_window'
-$change_windows    = hiera("change_window_set::${my_change_window}")
+  ```puppet
+  $change_window_set = 'my_change_window'
+  $change_windows    = hiera("change_window_set::${my_change_window}")
 
-if merge_change_windows($change_windows) == 'false' {
-  notify { "Puppet noop enabled in site.pp! Not within change window!": }
-  noop()
-}
-```
+  if merge_change_windows($change_windows) == 'false' {
+    notify { "Puppet noop enabled in site.pp! Not within change window!": }
+    noop()
+  }
+  ```
 
 ### Week in Month Change Windows
 Using the `$window_week` parameter in `change_window` you can specify a sub-set of weeks within each month to be 
