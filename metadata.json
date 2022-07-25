@@ -4,9 +4,9 @@
   "author": "puppetlabs",
   "summary": "Allows puppet code to be applied during specified change window(s)",
   "license": "Apache-2.0",
-  "source": "https://github.com/puppetlabs/change_window",
-  "project_page": "https://github.com/puppetlabs/change_window",
-  "issues_url": "https://github.com/puppetlabs/change_window/issues",
+  "source": "https://github.com/puppetlabs/puppetlabs-change_window",
+  "project_page": "https://github.com/puppetlabs/puppetlabs-change_window",
+  "issues_url": "https://github.com/puppetlabs/puppetlabs-change_window/issues",
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",
