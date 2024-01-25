@@ -1,9 +1,19 @@
-define change_window::apply(
+#
+# @summary
+#
+#
+# @param change_window_set 
+#   An array of change_window names to be merged.
+#
+# @param class_list
+#   An array of classes to be applied when within the change_window.
+#
+define change_window::apply (
   $change_window_set,
   $class_list,
 ) {
   #Notify Module version
-  notify{ 'Version 1.0': }
+  notify { 'Version 1.0': }
   # Validate arguments
   validate_array($change_window_set)
   validate_array($class_list)
@@ -14,11 +24,11 @@ define change_window::apply(
   # Set noop() when not "whithin" the change_window
   if  !str2bool(change_window::merge_change_windows($change_window_set)) {
     debug('not in change_window')
-    notify{ "#{${title}} not in change_windows #{${change_window_set}}, setting noop() mode.": }
+    notify { "#{${title}} not in change_windows #{${change_window_set}}, setting noop() mode.": }
     noop()
   } else {
     debug('in change_window')
-    notify{ "#{${title}} in change_windows #{${change_window_set}}": }
+    notify { "#{${title}} in change_windows #{${change_window_set}}": }
   }
 
   # Iterate the array of classes
@@ -28,7 +38,7 @@ define change_window::apply(
     if is_hash($class_entry) {
       create_resources('class', $class_entry)
 
-    # Simple named class
+      # Simple named class
     } else {
       include $class_entry
     }
