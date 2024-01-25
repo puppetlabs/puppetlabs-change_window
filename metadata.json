@@ -1,6 +1,6 @@
 {
   "name": "puppetlabs-change_window",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "puppetlabs",
   "summary": "Allows puppet code to be applied during specified change window(s)",
   "license": "Apache-2.0",
@@ -95,7 +95,7 @@
     "change window",
     "time"
   ],
-  "pdk-version": "3.0.0",
-  "template-url": "pdk-default#3.0.0",
-  "template-ref": "tags/3.0.0-0-g056e50d"
+  "pdk-version": "2.5.0",
+  "template-url": "pdk-default#2.5.0",
+  "template-ref": "tags/2.5.0-0-g369d483"
 }

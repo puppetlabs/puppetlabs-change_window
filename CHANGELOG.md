@@ -1,13 +1,63 @@
+<!-- markdownlint-disable MD024 -->
 # Changelog
 
-## Release 0.2.0
+All notable changes to this project will be documented in this file.
 
-**Features**
-Added Change window week/month functionality - Steve Jeffries
+The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
-**Bugfixes**
+## [v0.2.1](https://github.com/puppetlabs/puppetlabs-change_window/tree/v0.2.1) - 2024-01-25
 
-Module now supports Puppet 4.x api which caused original module [ipcrm-change_window](https://forge.puppet.com/modules/ipcrm/change_window) to stop functioning.
+[Full Changelog](https://github.com/puppetlabs/puppetlabs-change_window/compare/0.2.0...v0.2.1)
 
-**Known Issues**
+### Other
 
+- (MAINT) - PDK update [#16](https://github.com/puppetlabs/puppetlabs-change_window/pull/16) ([Ramesh7](https://github.com/Ramesh7))
+- Create .sync.yml [#15](https://github.com/puppetlabs/puppetlabs-change_window/pull/15) ([liamjohnsexton](https://github.com/liamjohnsexton))
+- Create release.yml [#14](https://github.com/puppetlabs/puppetlabs-change_window/pull/14) ([liamjohnsexton](https://github.com/liamjohnsexton))
+- Create release_prep.yml [#13](https://github.com/puppetlabs/puppetlabs-change_window/pull/13) ([liamjohnsexton](https://github.com/liamjohnsexton))
+- Added support disclaimer [#12](https://github.com/puppetlabs/puppetlabs-change_window/pull/12) ([binford2k](https://github.com/binford2k))
+- adjusted upper limit [#10](https://github.com/puppetlabs/puppetlabs-change_window/pull/10) ([prolixalias](https://github.com/prolixalias))
+- merging forge prep changes [#7](https://github.com/puppetlabs/puppetlabs-change_window/pull/7) ([kinners00](https://github.com/kinners00))
+
+## [0.2.0](https://github.com/puppetlabs/puppetlabs-change_window/tree/0.2.0) - 2021-04-01
+
+[Full Changelog](https://github.com/puppetlabs/puppetlabs-change_window/compare/0.1.7...0.2.0)
+
+### Other
+
+- merging forge prep changes [#7](https://github.com/puppetlabs/puppetlabs-change_window/pull/7) ([kinners00](https://github.com/kinners00))
+- PDK convert 2.0 + changelog/metadata changes [#6](https://github.com/puppetlabs/puppetlabs-change_window/pull/6) ([kinners00](https://github.com/kinners00))
+- pdk convert [#5](https://github.com/puppetlabs/puppetlabs-change_window/pull/5) ([kinners00](https://github.com/kinners00))
+- Change window week/month functionality [#1](https://github.com/puppetlabs/puppetlabs-change_window/pull/1) ([stevejefferies](https://github.com/stevejefferies))
+
+## [0.1.7](https://github.com/puppetlabs/puppetlabs-change_window/tree/0.1.7) - 2016-02-03
+
+[Full Changelog](https://github.com/puppetlabs/puppetlabs-change_window/compare/0.1.6...0.1.7)
+
+## [0.1.6](https://github.com/puppetlabs/puppetlabs-change_window/tree/0.1.6) - 2016-02-03
+
+[Full Changelog](https://github.com/puppetlabs/puppetlabs-change_window/compare/0.1.5...0.1.6)
+
+## [0.1.5](https://github.com/puppetlabs/puppetlabs-change_window/tree/0.1.5) - 2016-01-28
+
+[Full Changelog](https://github.com/puppetlabs/puppetlabs-change_window/compare/0.1.4...0.1.5)
+
+## [0.1.4](https://github.com/puppetlabs/puppetlabs-change_window/tree/0.1.4) - 2016-01-27
+
+[Full Changelog](https://github.com/puppetlabs/puppetlabs-change_window/compare/0.1.3...0.1.4)
+
+## [0.1.3](https://github.com/puppetlabs/puppetlabs-change_window/tree/0.1.3) - 2016-01-27
+
+[Full Changelog](https://github.com/puppetlabs/puppetlabs-change_window/compare/0.1.2...0.1.3)
+
+## [0.1.2](https://github.com/puppetlabs/puppetlabs-change_window/tree/0.1.2) - 2016-01-25
+
+[Full Changelog](https://github.com/puppetlabs/puppetlabs-change_window/compare/0.1.1...0.1.2)
+
+## [0.1.1](https://github.com/puppetlabs/puppetlabs-change_window/tree/0.1.1) - 2016-01-25
+
+[Full Changelog](https://github.com/puppetlabs/puppetlabs-change_window/compare/0.1.0...0.1.1)
+
+## [0.1.0](https://github.com/puppetlabs/puppetlabs-change_window/tree/0.1.0) - 2016-01-25
+
+[Full Changelog](https://github.com/puppetlabs/puppetlabs-change_window/compare/8438427392f97a03b178d0835f8e16fd4e9f75ee...0.1.0)
