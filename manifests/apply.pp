@@ -9,8 +9,8 @@
 #   An array of classes to be applied when within the change_window.
 #
 define change_window::apply (
-  $change_window_set,
-  $class_list,
+  Array $change_window_set,
+  Array $class_list,
 ) {
   #Notify Module version
   notify { 'Version 1.0': }

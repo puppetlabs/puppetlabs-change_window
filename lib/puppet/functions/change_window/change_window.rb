@@ -34,7 +34,7 @@ Puppet::Functions.create_function(:'change_window::change_window') do
       end
 
       def convert_string_to_int(s)
-        return Integer(s, 10)
+        Integer(s, 10)
       rescue ArgumentError => ex
         raise Puppet::ParseError("window_month range values must be valid integers, got: #{s}")
       end
@@ -58,11 +58,11 @@ Puppet::Functions.create_function(:'change_window::change_window') do
     end
     window_month_val.each do |val|
       if val.is_a?(Integer)
-        if val.between?(1, 12)
-          window_month.push(val)
-        else
-          raise Puppet::ParseError, 'window_month values must be between 1 and 12'
-        end
+        raise Puppet::ParseError, 'window_month values must be between 1 and 12' unless val.between?(1, 12)
+        window_month.push(val)
+
+
+
       end
       next unless val.is_a?(String)
       range = val.split('-')
@@ -140,7 +140,7 @@ Puppet::Functions.create_function(:'change_window::change_window') do
         raise Puppet::ParseError, "Invalid key provided for window_time. Only start/end supported - found #{ts}"
       end
 
-      unless window_time[ts] =~ %r{^\d(\d)?:\d\d$}
+      unless %r{^\d(\d)?:\d\d$}.match?(window_time[ts])
         raise Puppet::ParseError, "Invalid time supplied for window_time #{ts} - found #{window_time[ts]}"
       end
     end
