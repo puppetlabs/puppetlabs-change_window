@@ -14,9 +14,6 @@ define change_window::apply (
 ) {
   #Notify Module version
   notify { 'Version 1.0': }
-  # Validate arguments
-  validate_array($change_window_set)
-  validate_array($class_list)
 
   # Lookup named schedule
   debug("change_window_set = ${change_window_set}")
