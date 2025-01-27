@@ -1,4 +1,3 @@
-include change_window::apply
 #
 # Class test_apply - creates two resources with one set noop and the other not
 class test_apply {
