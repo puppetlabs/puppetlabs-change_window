@@ -32,7 +32,7 @@ define change_window::apply (
   debug("class_list = ${class_list}")
   $class_list.each |$class_entry| {
     # complex class utilizing a hash structure
-    if is_hash($class_entry) {
+    if $class_entry.is_a(Hash) {
       create_resources('class', $class_entry)
 
       # Simple named class
