@@ -1,5 +1,8 @@
 require 'spec_helper'
-require 'hiera'
+
+RSpec.configure do |c|
+  c.hiera_config = File.expand_path(File.join(__FILE__, '../fixtures/hiera.yaml'))
+end
 
 time = [2016, 1, 6, 6, 15] # 2016-01-06 06:15 (Wed)
 
