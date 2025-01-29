@@ -9,14 +9,11 @@
 #   An array of classes to be applied when within the change_window.
 #
 define change_window::apply (
-  $change_window_set,
-  $class_list,
+  Array $change_window_set,
+  Array $class_list,
 ) {
   #Notify Module version
   notify { 'Version 1.0': }
-  # Validate arguments
-  validate_array($change_window_set)
-  validate_array($class_list)
 
   # Lookup named schedule
   debug("change_window_set = ${change_window_set}")
@@ -35,7 +32,7 @@ define change_window::apply (
   debug("class_list = ${class_list}")
   $class_list.each |$class_entry| {
     # complex class utilizing a hash structure
-    if is_hash($class_entry) {
+    if $class_entry.is_a(Hash) {
       create_resources('class', $class_entry)
 
       # Simple named class

@@ -1,6 +1,6 @@
 {
   "name": "puppetlabs-change_window",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "author": "puppetlabs",
   "summary": "Allows puppet code to be applied during specified change window(s)",
   "license": "Apache-2.0",
@@ -10,7 +10,7 @@
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",
-      "version_requirement": ">= 2.4.0 < 9.0.0"
+      "version_requirement": ">= 4.10.0 < 10.0.0"
     },
     {
       "name": "trlinkin/noop",
@@ -87,7 +87,7 @@
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">= 5.5.10 < 8.0.0"
+      "version_requirement": ">= 5.5.10 < 9.0.0"
     }
   ],
   "tags": [
@@ -95,7 +95,7 @@
     "change window",
     "time"
   ],
-  "pdk-version": "2.5.0",
-  "template-url": "pdk-default#2.5.0",
-  "template-ref": "tags/2.5.0-0-g369d483"
+  "pdk-version": "3.4.0",
+  "template-url": "https://github.com/puppetlabs/pdk-templates#main",
+  "template-ref": "tags/3.4.0.2-0-gd5f5ac1"
 }
