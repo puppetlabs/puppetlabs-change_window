@@ -6,16 +6,16 @@
 
 ### Defined types
 
-* [`change_window::apply`](#change_windowapply)
+* [`change_window::apply`](#change_window--apply)
 
 ### Functions
 
-* [`change_window::change_window`](#change_windowchange_window): Provides change_window function that allows you to check current time against change window
-* [`change_window::merge_change_windows`](#change_windowmerge_change_windows): Creates complex change windows by merging a series of windows together
+* [`change_window::change_window`](#change_window--change_window): Provides change_window function that allows you to check current time against change window
+* [`change_window::merge_change_windows`](#change_window--merge_change_windows): Creates complex change windows by merging a series of windows together
 
 ## Defined types
 
-### <a name="change_windowapply"></a>`change_window::apply`
+### <a name="change_window--apply"></a>`change_window::apply`
 
 The change_window::apply class.
 
@@ -23,24 +23,24 @@ The change_window::apply class.
 
 The following parameters are available in the `change_window::apply` defined type:
 
-* [`change_window_set`](#change_window_set)
-* [`class_list`](#class_list)
+* [`change_window_set`](#-change_window--apply--change_window_set)
+* [`class_list`](#-change_window--apply--class_list)
 
-##### <a name="change_window_set"></a>`change_window_set`
+##### <a name="-change_window--apply--change_window_set"></a>`change_window_set`
 
-Data type: `Any`
+Data type: `Array`
 
 An array of change_window names to be merged.
 
-##### <a name="class_list"></a>`class_list`
+##### <a name="-change_window--apply--class_list"></a>`class_list`
 
-Data type: `Any`
+Data type: `Array`
 
 An array of classes to be applied when within the change_window.
 
 ## Functions
 
-### <a name="change_windowchange_window"></a>`change_window::change_window`
+### <a name="change_window--change_window"></a>`change_window::change_window`
 
 Type: Ruby 4.x API
 
@@ -106,7 +106,7 @@ Data type: `Optional[Array]`
 
 
 
-### <a name="change_windowmerge_change_windows"></a>`change_window::merge_change_windows`
+### <a name="change_window--merge_change_windows"></a>`change_window::merge_change_windows`
 
 Type: Ruby 4.x API
 
