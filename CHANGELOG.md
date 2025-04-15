@@ -5,13 +5,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
-## [v0.2.2](https://github.com/puppetlabs/puppetlabs-change_window/tree/v0.2.2) - 2025-01-29
+## [v1.0.1](https://github.com/puppetlabs/puppetlabs-change_window/tree/v1.0.1) - 2025-04-15
 
-[Full Changelog](https://github.com/puppetlabs/puppetlabs-change_window/compare/v0.2.1...v0.2.2)
+[Full Changelog](https://github.com/puppetlabs/puppetlabs-change_window/compare/v1.0.0...v1.0.1)
 
-### Fixed
+### Added
 
 - Update puppet 8 [#18](https://github.com/puppetlabs/puppetlabs-change_window/pull/18) ([xenon8](https://github.com/xenon8))
+
+## [v1.0.0](https://github.com/puppetlabs/puppetlabs-change_window/tree/v1.0.0) - 2025-01-29
+
+[Full Changelog](https://github.com/puppetlabs/puppetlabs-change_window/compare/v0.2.1...v1.0.0)
 
 ### Other
 

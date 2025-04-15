@@ -1,6 +1,6 @@
 {
   "name": "puppetlabs-change_window",
-  "version": "0.2.2",
+  "version": "1.0.1",
   "author": "puppetlabs",
   "summary": "Allows puppet code to be applied during specified change window(s)",
   "license": "Apache-2.0",
